@@ -75,13 +75,14 @@ class BdExampleInstrumentedTest {
         val tabelaTipos = TabelaTipos(bd)
 
         val cursor = tabelaTipos.consulta(
-            TabelaTipos.CAMPOS, "${BaseColumns._ID}=?", arrayOf(tipo1.id.toString()),
+            TabelaTipos.CAMPOS, "${BaseColumns._ID}=?", arrayOf(tipo2.id.toString()),
             null,
             null,
             null
         )
 
         assert(cursor.moveToNext())
+
         val tipoBD = Tipos.fromCursor(cursor)
 
         assertEquals(tipo2,tipoBD)
@@ -107,33 +108,31 @@ class BdExampleInstrumentedTest {
         val Bebida1 = Bebidas("Joy","Não",tipo.id)
         insereBebida(bd, Bebida1)
 
-        val Bebida2 = Bebidas("Papa Figo","Sim",tipo.id)
-        insereBebida(bd, Bebida2)
-
-        val tabelaBebidas = TabelaTipos(bd)
+        val tabelaBebidas = TabelaBebidas(bd)
 
         val cursor = tabelaBebidas.consulta(
-            TabelaTipos.CAMPOS, "${BaseColumns._ID}=?", arrayOf(Bebida1.id_tipos.toString()),
+            TabelaBebidas.CAMPOS, "${BaseColumns._ID}=?", arrayOf(Bebida1.id.toString()),
             null,
             null,
             null
         )
 
         assert(cursor.moveToNext())
-        val tipoBD = Tipos.fromCursor(cursor)
 
-        assertEquals(Bebida2,tipoBD)
+        val bebidasBD = Bebidas.fromCursor(cursor)
 
-        val cursorTodosTipos = tabelaBebidas.consulta(
-            TabelaTipos.CAMPOS,
+        assertEquals(Bebida1,bebidasBD)
+
+        val cursorTodosAsBebidas = tabelaBebidas.consulta(
+            TabelaBebidas.CAMPOS,
             null,
             null,
             null,
             null,
-            TabelaTipos.CAMPO_TIPO
+            TabelaBebidas.NOME_MARCA
         )
 
-        assert(cursorTodosTipos.count > 1)
+        assert(cursorTodosAsBebidas.count > 1)
     }
 
 
@@ -178,7 +177,7 @@ class BdExampleInstrumentedTest {
         val tipo2 = Tipos("Sumos", "Laranja",1.00)
         insereTipos(bd, tipo2)
 
-        val Bebida1 = Bebidas("Papa Figos","Sim",tipo.id)
+        val Bebida1 = Bebidas("...","...",tipo.id)
         insereBebida(bd, Bebida1)
 
         Bebida1.id_tipos = tipo2.id
@@ -186,7 +185,7 @@ class BdExampleInstrumentedTest {
         Bebida1.TEOR_ALCOOLICO="Não"
 
 
-        val registoAlterado = TabelaTipos(bd).altera(Bebida1.toContentValues(),
+        val registoAlterado = TabelaBebidas(bd).altera(Bebida1.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf(tipo.id.toString()),
         )

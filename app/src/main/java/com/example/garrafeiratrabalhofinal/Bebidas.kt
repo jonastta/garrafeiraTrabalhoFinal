@@ -3,15 +3,12 @@ package com.example.garrafeiratrabalhofinal
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
-import androidx.core.content.contentValuesOf
-import androidx.core.database.getBlobOrNull
-import androidx.core.database.getDoubleOrNull
 import com.example.garrafeira.TabelaBebidas
 
-class Bebidas(
-    var marca : String,
-    var TEOR_ALCOOLICO: String,
-    var id_tipos : Long,
+data class Bebidas(
+    var marca : String?,
+    var TEOR_ALCOOLICO: String?,
+    var id_tipos : Long = -1,
     var id : Long = -1
 ) {
     fun toContentValues() : ContentValues{
@@ -26,7 +23,7 @@ class Bebidas(
         return valores
     }
     companion object {
-        fun fromCursor(cursor: Cursor): Bebidas {
+        fun fromCursor(cursor: Cursor): Bebidas{
             val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posMarca = cursor.getColumnIndex(TabelaBebidas.NOME_MARCA)
             val posTeor_Alcoolico = cursor.getColumnIndex(TabelaBebidas.NOME_TEOR_ALCOOLICO)

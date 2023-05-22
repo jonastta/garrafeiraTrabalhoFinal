@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import com.example.garrafeira.TabelaTipos
 
-class Tipos(
+data class Tipos(
     var tipos: String,
     var sabor: String,
     var quantidade: Double,
