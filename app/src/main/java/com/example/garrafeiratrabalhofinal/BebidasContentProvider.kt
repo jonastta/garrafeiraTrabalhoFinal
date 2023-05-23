@@ -61,16 +61,61 @@ class BebidasCsontentProvider : ContentProvider(){
         TODO("Not yet implemented")
     }
 
-    override fun insert(p0: Uri, p1: ContentValues?): Uri? {
-        TODO("Not yet implemented")
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+
+        val bd = bdOpenHelper!!.writableDatabase
+
+
+        val endereco = UriMatcher().match(uri)
+
+        val tabela = when (endereco){
+            URI_BEBIDAS -> TabelaBebidas(bd)
+            URI_TIPOS -> TabelaTipos(bd)
+            else -> return null
+        }
+
+        val id = tabela.insere(values!!)
+        if (id == -1L){
+            return null
+        }
+
+        return Uri.withAppendedPath(uri, id.toString())
+
     }
 
-    override fun delete(p0: Uri, p1: String?, p2: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun delete(uri: Uri, values: String?, selection: Array<out String>?): Int {
+        val bd = bdOpenHelper!!.writableDatabase
+
+
+        val endereco = UriMatcher().match(uri)
+
+        val tabela = when (endereco){
+            URI_BEBIDAS_ID -> TabelaBebidas(bd)
+            URI_TIPOS_ID -> TabelaTipos(bd)
+            else -> return 0
+        }
+
+        val id = uri.lastPathSegment!!
+
+        return tabela.elimina("${BaseColumns._ID}=?", arrayOf(id))
     }
 
-    override fun update(p0: Uri, p1: ContentValues?, p2: String?, p3: Array<out String>?): Int {
-        TODO("Not yet implemented")
+    override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?): Int {
+
+        val bd = bdOpenHelper!!.writableDatabase
+
+
+        val endereco = UriMatcher().match(uri)
+
+        val tabela = when (endereco){
+            URI_BEBIDAS_ID -> TabelaBebidas(bd)
+            URI_TIPOS_ID -> TabelaTipos(bd)
+            else -> return 0
+        }
+
+        val id = uri.lastPathSegment!!
+
+        return tabela.altera(values!!,"${BaseColumns._ID}=?", arrayOf(id))
     }
 
     companion object{
