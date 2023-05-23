@@ -102,16 +102,20 @@ class BdExampleInstrumentedTest {
     fun consegueLerBebidas() {
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Vinhos", "Tinto",0.75)
+        val tipo = Tipos("Licor", "Tinto",0.75)
         insereTipos(bd, tipo)
 
-        val Bebida1 = Bebidas("Joy","Não",tipo.id)
+        val Bebida = Bebidas("Cerveja","Não",tipo.id)
+        insereBebida(bd, Bebida)
+
+        val Bebida1 = Bebidas("Sumol","Não",tipo.id)
         insereBebida(bd, Bebida1)
 
         val tabelaBebidas = TabelaBebidas(bd)
 
         val cursor = tabelaBebidas.consulta(
-            TabelaBebidas.CAMPOS, "${BaseColumns._ID}=?", arrayOf(Bebida1.id.toString()),
+            TabelaBebidas.CAMPOS,
+            "${BaseColumns._ID}=?", arrayOf(Bebida.id.toString()),
             null,
             null,
             null
@@ -121,7 +125,7 @@ class BdExampleInstrumentedTest {
 
         val bebidasBD = Bebidas.fromCursor(cursor)
 
-        assertEquals(Bebida1,bebidasBD)
+        assertEquals(Bebida,bebidasBD)
 
         val cursorTodosAsBebidas = tabelaBebidas.consulta(
             TabelaBebidas.CAMPOS,
@@ -137,8 +141,8 @@ class BdExampleInstrumentedTest {
 
 
     private fun insereBebida(bd: SQLiteDatabase, bebida: Bebidas) {
-        bebida.id_tipos = TabelaBebidas(bd).insere(bebida.toContentValues())
-        assertNotEquals(-1, bebida.id_tipos)
+        bebida.id = TabelaBebidas(bd).insere(bebida.toContentValues())
+        assertNotEquals(-1, bebida.id)
     }
 
     private fun getWritableDatabase(): SQLiteDatabase {

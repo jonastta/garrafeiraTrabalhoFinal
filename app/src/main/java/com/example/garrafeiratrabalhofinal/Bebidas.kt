@@ -8,7 +8,7 @@ import com.example.garrafeira.TabelaBebidas
 data class Bebidas(
     var marca : String?,
     var TEOR_ALCOOLICO: String?,
-    var id_tipos : Long = -1,
+    var id_tipos : Long,
     var id : Long = -1
 ) {
     fun toContentValues() : ContentValues{
@@ -29,13 +29,12 @@ data class Bebidas(
             val posTeor_Alcoolico = cursor.getColumnIndex(TabelaBebidas.NOME_TEOR_ALCOOLICO)
             val posId_tipos = cursor.getColumnIndex(TabelaBebidas.NOME_FK_TIPOS)
 
+            val id = cursor.getLong(posId)
             val teor_alcoolico = cursor.getString(posTeor_Alcoolico)
             val marca = cursor.getString(posMarca)
             val id_tipos = cursor.getLong(posId_tipos)
-            val id = cursor.getLong(posId)
 
-
-            return Bebidas(marca,teor_alcoolico,id_tipos,id)
+            return Bebidas(marca, teor_alcoolico, id_tipos, id)
         }
     }
 }

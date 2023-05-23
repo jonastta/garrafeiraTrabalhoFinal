@@ -6,8 +6,8 @@ import android.provider.BaseColumns
 import com.example.garrafeira.TabelaTipos
 
 data class Tipos(
-    var tipos: String,
-    var sabor: String,
+    var tipos: String?,
+    var sabor: String?,
     var quantidade: Double,
     var id: Long=-1) {
     fun  toContentValues() : ContentValues {
