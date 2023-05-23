@@ -57,8 +57,16 @@ class BebidasCsontentProvider : ContentProvider(){
 
     }
 
-    override fun getType(p0: Uri): String? {
-        TODO("Not yet implemented")
+    override fun getType(uri: Uri): String? {
+        val endereco = UriMatcher().match(uri)
+
+        return when(endereco){
+            URI_BEBIDAS -> "vnd.android.cursor.dir/$BEBIDAS"
+            URI_BEBIDAS_ID -> "vnd.android.cursor.item/$BEBIDAS"
+            URI_TIPOS -> "vnd.android.cursor.dir/$TIPOS"
+            URI_TIPOS_ID -> "vnd.android.cursor.item/$TIPOS"
+            else -> null
+        }
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
