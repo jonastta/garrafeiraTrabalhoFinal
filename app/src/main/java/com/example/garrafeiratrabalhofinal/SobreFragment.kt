@@ -32,7 +32,7 @@ private var _binding: FragmentSobreBinding? = null
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_SobreFragment_to_MenuPrincipalFragment)
         }
     }
 override fun onDestroyView() {

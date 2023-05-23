@@ -32,7 +32,7 @@ private var _binding: FragmentoMenuPrincialBinding? = null
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_Menu_Principal_Fragment_to_SobreFragment)
         }
     }
 
