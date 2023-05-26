@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_Menu_Principal_Fragment_to_SobreFragment"
             app:destination="@id/SobreFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaTiposFragment"
+            app:destination="@id/ListaTiposFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -23,6 +26,15 @@
 
         <action
             android:id="@+id/action_SobreFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaTiposFragment"
+        android:name="com.example.garrafeiratrabalhofinal.ListaTiposFragment"
+        android:label="fragment_lista_tipos"
+        tools:layout="@layout/fragment_lista_tipos" >
+        <action
+            android:id="@+id/action_ListaTiposFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>

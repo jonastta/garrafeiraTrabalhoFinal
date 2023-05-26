@@ -34,6 +34,10 @@ private var _binding: FragmentoMenuPrincialBinding? = null
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_Menu_Principal_Fragment_to_SobreFragment)
         }
+
+        binding.buttonTipo.setOnClickListener{
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaTiposFragment)
+        }
     }
 
 override fun onDestroyView() {

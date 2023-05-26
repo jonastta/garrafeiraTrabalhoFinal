@@ -49,4 +49,7 @@
     <string name="bebidas">Bebidas</string>
     <string name="tipos">Tipos</string>
     <string name="jo_o_rodrigo_figueiredo_costa_1703762">João Rodrigo Figueiredo Costa 1703762</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Lista_tipos_label">tipos</string>
 </resources>
