@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.garrafeiratrabalhofinal.databinding.FragmentListaTiposBinding
 
 
+private const val ID_LOADER_TIPOS = 0
+
+
 class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaTiposBinding? = null
@@ -39,6 +42,11 @@ class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val adapterTipos = AdapterTipos()
         binding.RecyclerViewTipos.adapter = adapterTipos
         binding.RecyclerViewTipos.layoutManager = LinearLayoutManager(requireContext())
+
+
+        val loader = LoaderManager.getInstance(this)
+            loader.initLoader(ID_LOADER_TIPOS,null,this)
+
     }
 
     companion object {
