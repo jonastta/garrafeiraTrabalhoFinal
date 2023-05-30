@@ -7,16 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeiratrabalhofinal.databinding.FragmentListaTiposBinding
-import com.example.garrafeiratrabalhofinal.databinding.FragmentSobreBinding
 
 
-private const val ID_LOADER_TIPOS = 0
+private const val ID_LOADER_BEBIDAS = 0
 
 
-class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaTiposBinding? = null
 
@@ -43,13 +44,13 @@ class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterTipos = AdapterTipos()
-        binding.RecyclerViewTipos.adapter = adapterTipos
+        val adapterBebidas = AdapterbBebidas()
+        binding.RecyclerViewTipos.adapter = adapterBebidas
         binding.RecyclerViewTipos.layoutManager = LinearLayoutManager(requireContext())
 
 
        val loader = LoaderManager.getInstance(this)
-        loader.initLoader(ID_LOADER_TIPOS,null,this)
+        loader.initLoader(ID_LOADER_BEBIDAS,null,this)
 
     }
     override fun onDestroyView() {
@@ -59,16 +60,22 @@ class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     companion object {
     }
-
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
+        return CursorLoader(
+            requireContext(),
+            BebidasCsontentProvider.ENDERECO_BEBIDAS,
+            TabelaBebidas.CAMPOS,
+            null, null,
+            TabelaBebidas.NOME_MARCA)
+
     }
 
+    private val adapterbBebidas = AdapterbBebidas()
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        adapterbBebidas.cursor = null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        adapterbBebidas.cursor = data
     }
 }

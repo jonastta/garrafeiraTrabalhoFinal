@@ -4,12 +4,10 @@ import android.content.ContentProvider
 import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
-import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
 import android.provider.BaseColumns
 import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeira.TabelaTipos
-import java.nio.ByteOrder
 
 class BebidasCsontentProvider : ContentProvider(){
 
@@ -136,6 +134,10 @@ class BebidasCsontentProvider : ContentProvider(){
         private const val URI_TIPOS_ID = 101
         private const val URI_BEBIDAS = 200
         private const val URI_BEBIDAS_ID = 201
+
+        private  val ENDERECO_BASE =Uri.parse("content://$AUTORIDADE")
+        public val ENDERECO_TIPOS = Uri.withAppendedPath(ENDERECO_BASE, TIPOS)
+        public val ENDERECO_BEBIDAS= Uri.withAppendedPath(ENDERECO_BASE, BEBIDAS)
         fun UriMatcher() = UriMatcher(UriMatcher.NO_MATCH).apply {
             addURI(AUTORIDADE, TIPOS, URI_TIPOS)
             addURI(AUTORIDADE,"$TIPOS", URI_TIPOS)

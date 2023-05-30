@@ -1,12 +1,20 @@
 package com.example.garrafeiratrabalhofinal
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class AdapterTipos : RecyclerView.Adapter<AdapterTipos.ViewHolderTipos>() {
+class AdapterbBebidas : RecyclerView.Adapter<AdapterbBebidas.ViewHolderTipos>() {
+
+    var cursor:Cursor? = null
+        set(value){
+            field = value
+            notifyDataSetChanged()
+        }
     inner class ViewHolderTipos(itemView: View) :ViewHolder(itemView) {
+
 
     }
 
@@ -15,7 +23,7 @@ class AdapterTipos : RecyclerView.Adapter<AdapterTipos.ViewHolderTipos>() {
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count?:0
     }
 
     override fun onBindViewHolder(holder: ViewHolderTipos, position: Int) {
