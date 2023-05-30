@@ -26,7 +26,7 @@ class BdExampleInstrumentedTest {
 
     @Before
     fun apagaBaseDados(){
-        getAppContext().deleteDatabase(BdGarrafeira.NOME_BASE_DADOS)
+        //getAppContext().deleteDatabase(BdGarrafeira.NOME_BASE_DADOS)
     }
     @Test
     fun consegueAbrirBaseDados() {

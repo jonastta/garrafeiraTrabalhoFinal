@@ -34,17 +34,12 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     ): View? {
         _binding = FragmentListaTiposBinding.inflate(inflater, container, false)
         return binding.root
-
-
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista_tipos, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterBebidas = AdapterbBebidas(this)
+        adapterBebidas = AdapterBebidas(this)
         binding.RecyclerViewTipos.adapter = adapterBebidas
         binding.RecyclerViewTipos.layoutManager = LinearLayoutManager(requireContext())
 
@@ -69,7 +64,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     }
 
-    private var adapterBebidas:  AdapterbBebidas ?= null
+    private var adapterBebidas:  AdapterBebidas ?= null
     override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterBebidas!!.cursor = null
     }

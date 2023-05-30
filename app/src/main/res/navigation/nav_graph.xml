@@ -15,7 +15,7 @@
             android:id="@+id/action_Menu_Principal_Fragment_to_SobreFragment"
             app:destination="@id/SobreFragment" />
         <action
-            android:id="@+id/action_MenuPrincipalFragment_to_ListaTiposFragment"
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaBebidasFragment"
             app:destination="@id/ListaTiposFragment" />
     </fragment>
     <fragment

@@ -23,6 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.example.garrafeiratrabalhofinal"
+            android:name=".BebidasCsontentProvider"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

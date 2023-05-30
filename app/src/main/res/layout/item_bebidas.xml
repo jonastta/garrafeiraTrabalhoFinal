@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textViewTitulo"
+        android:id="@+id/textViewTipo"
         android:layout_width="96dp"
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewBebidas"
+        android:id="@+id/textViewBebida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -25,5 +25,5 @@
         android:text="Papa Figos"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTipo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
