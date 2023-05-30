@@ -6,27 +6,31 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class AdapterbBebidas : RecyclerView.Adapter<AdapterbBebidas.ViewHolderTipos>() {
+class AdapterbBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<AdapterbBebidas.ViewHolderBebidas>() {
 
     var cursor:Cursor? = null
         set(value){
             field = value
             notifyDataSetChanged()
         }
-    inner class ViewHolderTipos(itemView: View) :ViewHolder(itemView) {
-
+    inner class ViewHolderBebidas(itemView: View) :ViewHolder(itemView) {
+        internal var bebidas:Bebidas? = null
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderTipos {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderBebidas {
+        return ViewHolderBebidas(
+        fragment.layoutInflater.inflate(R.layout.item_bebidas,parent,false)
+        )
     }
 
     override fun getItemCount(): Int {
         return cursor?.count?:0
     }
 
-    override fun onBindViewHolder(holder: ViewHolderTipos, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolderBebidas, position: Int) {
+        cursor!!.move(position)
+        holder.bebidas=Bebidas.fromCursor(cursor!!)
+        //holder
     }
 }

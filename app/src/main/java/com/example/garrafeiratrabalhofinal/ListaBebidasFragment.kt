@@ -44,7 +44,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapterBebidas = AdapterbBebidas()
+        val adapterBebidas = AdapterbBebidas(this)
         binding.RecyclerViewTipos.adapter = adapterBebidas
         binding.RecyclerViewTipos.layoutManager = LinearLayoutManager(requireContext())
 
@@ -58,8 +58,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         _binding = null
     }
 
-    companion object {
-    }
+
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
@@ -70,12 +69,12 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     }
 
-    private val adapterbBebidas = AdapterbBebidas()
+    private var adapterBebidas:  AdapterbBebidas ?= null
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterbBebidas.cursor = null
+        adapterBebidas!!.cursor = null
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        adapterbBebidas.cursor = data
+        adapterBebidas!!.cursor = data
     }
 }
