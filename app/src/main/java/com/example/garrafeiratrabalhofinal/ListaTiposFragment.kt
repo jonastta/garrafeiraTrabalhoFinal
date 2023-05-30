@@ -10,6 +10,7 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.garrafeiratrabalhofinal.databinding.FragmentListaTiposBinding
+import com.example.garrafeiratrabalhofinal.databinding.FragmentSobreBinding
 
 
 private const val ID_LOADER_TIPOS = 0
@@ -30,6 +31,9 @@ class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentListaTiposBinding.inflate(inflater, container, false)
+        return binding.root
+
 
 
         // Inflate the layout for this fragment
@@ -44,9 +48,13 @@ class ListaTiposFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         binding.RecyclerViewTipos.layoutManager = LinearLayoutManager(requireContext())
 
 
-        val loader = LoaderManager.getInstance(this)
-            loader.initLoader(ID_LOADER_TIPOS,null,this)
+       val loader = LoaderManager.getInstance(this)
+        loader.initLoader(ID_LOADER_TIPOS,null,this)
 
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
