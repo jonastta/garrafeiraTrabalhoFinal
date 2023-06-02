@@ -8,7 +8,7 @@ import com.example.garrafeira.TabelaBebidas
 data class Bebidas(
     var marca : String?,
     var TEOR_ALCOOLICO: String?,
-    var id_tipos : Long,
+    var tipos : Tipos,
     var id : Long = -1
 ) {
     fun toContentValues() : ContentValues{
@@ -17,7 +17,7 @@ data class Bebidas(
 
         valores.put(TabelaBebidas.NOME_MARCA,marca)
         valores.put(TabelaBebidas.NOME_TEOR_ALCOOLICO,TEOR_ALCOOLICO)
-        valores.put(TabelaBebidas.NOME_FK_TIPOS,id_tipos)
+        valores.put(TabelaBebidas.NOME_FK_TIPOS,tipos.id)
 
 
         return valores
@@ -28,13 +28,20 @@ data class Bebidas(
             val posMarca = cursor.getColumnIndex(TabelaBebidas.NOME_MARCA)
             val posTeor_Alcoolico = cursor.getColumnIndex(TabelaBebidas.NOME_TEOR_ALCOOLICO)
             val posId_tipos = cursor.getColumnIndex(TabelaBebidas.NOME_FK_TIPOS)
+            val posNomeTipos = cursor.getColumnIndex(TabelaBebidas.CAMPO_NOME_TIPO)
+            val posSaborTipos = cursor.getColumnIndex(TabelaBebidas.CAMPO_SABOR_TIPO)
+            val posQuantidadeTipos = cursor.getColumnIndex(TabelaBebidas.CAMPO_QUANTIDADE_TIPO)
+
 
             val id = cursor.getLong(posId)
             val teor_alcoolico = cursor.getString(posTeor_Alcoolico)
             val marca = cursor.getString(posMarca)
-            val id_tipos = cursor.getLong(posId_tipos)
+            val Nome_Tipo = cursor.getString(posNomeTipos)
+            val tipos = cursor.getLong(posId_tipos)
+            val Sabor_tipos = cursor.getString(posSaborTipos)
+            val Quantidade_tipos = cursor.getDouble(posQuantidadeTipos)
 
-            return Bebidas(marca, teor_alcoolico, id_tipos, id)
+            return Bebidas(marca, teor_alcoolico, Tipos (Nome_Tipo,Sabor_tipos,Quantidade_tipos, tipos) , id)
         }
     }
 }

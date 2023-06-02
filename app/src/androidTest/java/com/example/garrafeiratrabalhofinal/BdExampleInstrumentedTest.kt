@@ -55,10 +55,10 @@ class BdExampleInstrumentedTest {
         val tipo = Tipos("Vinho", "Tinto",0.75)
         insereTipos(bd, tipo)
 
-        val Bebida1 = Bebidas("Joy","Não", tipo.id)
+        val Bebida1 = Bebidas("Joy","Não", tipo)
         insereBebida(bd, Bebida1)
 
-        val Bebida2 = Bebidas("Papa Figos", "Sim", tipo.id)
+        val Bebida2 = Bebidas("Papa Figos", "Sim", tipo)
         insereBebida(bd, Bebida2)
     }
 
@@ -105,17 +105,17 @@ class BdExampleInstrumentedTest {
         val tipo = Tipos("Licor", "Tinto",0.75)
         insereTipos(bd, tipo)
 
-        val Bebida = Bebidas("Cerveja","Não",tipo.id)
+        val Bebida = Bebidas("Cerveja","Não", tipo)
         insereBebida(bd, Bebida)
 
-        val Bebida1 = Bebidas("Sumol","Não",tipo.id)
+        val Bebida1 = Bebidas("Sumol","Não",tipo)
         insereBebida(bd, Bebida1)
 
         val tabelaBebidas = TabelaBebidas(bd)
 
         val cursor = tabelaBebidas.consulta(
             TabelaBebidas.CAMPOS,
-            "${BaseColumns._ID}=?", arrayOf(Bebida.id.toString()),
+            "${TabelaBebidas.CAMPO_ID}=?", arrayOf(Bebida.id.toString()),
             null,
             null,
             null
@@ -181,10 +181,10 @@ class BdExampleInstrumentedTest {
         val tipo2 = Tipos("Sumos", "Laranja",1.00)
         insereTipos(bd, tipo2)
 
-        val Bebida1 = Bebidas("...","...",tipo.id)
+        val Bebida1 = Bebidas("...","...",tipo)
         insereBebida(bd, Bebida1)
 
-        Bebida1.id_tipos = tipo2.id
+        Bebida1.tipos = tipo2
         Bebida1.marca = "Sumol"
         Bebida1.TEOR_ALCOOLICO="Não"
 
@@ -226,7 +226,7 @@ class BdExampleInstrumentedTest {
         insereTipos(bd, tipo)
 
 
-        val Bebida1 = Bebidas("Papa Figos","Sim",tipo.id)
+        val Bebida1 = Bebidas("Papa Figos","Sim",tipo)
         insereBebida(bd, Bebida1)
 
 

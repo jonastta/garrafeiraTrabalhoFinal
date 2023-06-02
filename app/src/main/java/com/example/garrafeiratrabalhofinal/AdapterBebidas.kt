@@ -19,13 +19,31 @@ class AdapterBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<
         private val  textViewTipo = contentor.findViewById<TextView>(R.id.textViewTipo)
         private val textViewBebida = contentor.findViewById<TextView>(R.id.textViewBebida)
 
+
+            init {
+                contentor.setOnClickListener {
+                    viewHolderSelecionado?.desSeleciona()
+                    seleciona()
+                }
+            }
         internal var bebidas:Bebidas? = null
             set(value){
                 field = value
                 textViewBebida.text = bebidas?.marca?:""
-                textViewTipo.text = bebidas?.id_tipos.toString()?:""
+                textViewTipo.text = bebidas?.tipos?.tipos?:""
 
             }
+
+        fun seleciona(){
+            viewHolderSelecionado = this
+            itemView.setBackgroundResource(R.color.item_selecionado)
+        }
+
+        fun desSeleciona (){
+            itemView.setBackgroundResource(R.color.white)
+        }
+
+        private var viewHolderSelecionado : ViewHolderBebidas ?= null
 
 
     }

@@ -13,6 +13,7 @@ class TabelaTipos(db: SQLiteDatabase) : TabelaBD(db, NOME_TABELA) {
         const val CAMPO_TIPO = "tipo"
         const val CAMPO_SABOR = "sabor"
         const val CAMPO_QUANTIDADE = "quantidade"
+        const val  CAMPO_ID = "${NOME_TABELA}.${BaseColumns._ID}"
 
         val CAMPOS = arrayOf(BaseColumns._ID, CAMPO_TIPO, CAMPO_SABOR, CAMPO_QUANTIDADE)
     }
