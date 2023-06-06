@@ -38,6 +38,9 @@ private var _binding: FragmentoMenuPrincialBinding? = null
         binding.buttonBebidas.setOnClickListener{
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaBebidasFragment)
         }
+
+        val activity = activity as MainActivity
+        activity.idMenuAtual = R.menu.menu_lista_bebidas
     }
 
 override fun onDestroyView() {
