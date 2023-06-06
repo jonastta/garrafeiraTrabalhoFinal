@@ -34,6 +34,9 @@ private var _binding: FragmentSobreBinding? = null
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SobreFragment_to_MenuPrincipalFragment)
         }
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_lista_bebidas
     }
 override fun onDestroyView() {
         super.onDestroyView()
