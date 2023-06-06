@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -77,4 +78,36 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         adapterBebidas!!.cursor = data
     }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_Adicionar -> {
+                adicionaBebidas()
+                true
+            }
+            R.id.action_Editar -> {
+                editarBebidas()
+                true
+            }
+            R.id.action_Eliminar -> {
+                eliminarBebidas()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun eliminarBebidas() {
+        TODO("Not yet implemented")
+    }
+
+    private fun editarBebidas() {
+        TODO("Not yet implemented")
+    }
+
+    private fun adicionaBebidas() {
+        TODO("Not yet implemented")
+    }
+
+
 }
