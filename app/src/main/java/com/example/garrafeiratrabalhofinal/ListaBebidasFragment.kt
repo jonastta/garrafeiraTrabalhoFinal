@@ -23,6 +23,8 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private val binding get() = _binding!!
 
+    var bebedidaSelecionada : Bebidas? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
