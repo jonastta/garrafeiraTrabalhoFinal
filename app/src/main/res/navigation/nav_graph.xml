@@ -36,5 +36,17 @@
         <action
             android:id="@+id/action_ListaTiposFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
+        <action
+            android:id="@+id/action_ListaTiposFragment_to_novaBebidaFragment"
+            app:destination="@id/novaBebidaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novaBebidaFragment"
+        android:name="com.example.garrafeiratrabalhofinal.NovaBebidaFragment"
+        android:label="@string/nova_bebeida_label"
+        tools:layout="@layout/fragment_nova_bebida">
+        <action
+            android:id="@+id/action_novaBebidaFragment_to_ListaTiposFragment"
+            app:destination="@id/ListaTiposFragment" />
     </fragment>
 </navigation>

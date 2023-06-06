@@ -25,6 +25,15 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private val binding get() = _binding!!
 
     var bebedidaSelecionada : Bebidas? = null
+        set(value){
+            field = value
+
+            val mostarEleminarAlterar = (value != null)
+
+            val activity = activity as MainActivity
+            activity.mostraBotaoMenu(R.id.action_Editar,mostarEleminarAlterar)
+            activity.mostraBotaoMenu(R.id.action_Eliminar,mostarEleminarAlterar)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

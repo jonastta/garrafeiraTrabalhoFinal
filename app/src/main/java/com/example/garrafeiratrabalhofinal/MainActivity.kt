@@ -15,8 +15,9 @@ import com.example.garrafeiratrabalhofinal.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var menu: Menu
     private lateinit var appBarConfiguration: AppBarConfiguration
-private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
 
     var idMenuAtual : Int = R.menu.menu_main
@@ -46,6 +47,8 @@ private lateinit var binding: ActivityMainBinding
 override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(idMenuAtual, menu)
+
+        this.menu = menu
         return true
     }
 
@@ -72,5 +75,11 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
     val navController = findNavController(R.id.nav_host_fragment_content_main)
     return navController.navigateUp(appBarConfiguration)
             || super.onSupportNavigateUp()
+    }
+
+
+    fun mostraBotaoMenu(idOpcao:Int, mostar : Boolean){
+        menu.findItem(idOpcao).setVisible(mostar)
+
     }
 }
