@@ -191,7 +191,7 @@ class BdExampleInstrumentedTest {
 
         val registoAlterado = TabelaBebidas(bd).altera(Bebida1.toContentValues(),
             "${BaseColumns._ID}=?",
-            arrayOf(tipo.id.toString()),
+            arrayOf(Bebida1.id.toString()),
         )
 
         assertEquals(1,registoAlterado)

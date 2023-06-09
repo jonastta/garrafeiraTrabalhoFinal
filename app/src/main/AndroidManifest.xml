@@ -25,7 +25,7 @@
         </activity>
         <provider
             android:authorities="com.example.garrafeiratrabalhofinal"
-            android:name=".BebidasCsontentProvider"
+            android:name=".BebidasContentProvider"
             android:exported="false"
             />
     </application>

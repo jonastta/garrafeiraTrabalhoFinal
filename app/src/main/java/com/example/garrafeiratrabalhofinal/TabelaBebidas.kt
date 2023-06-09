@@ -32,7 +32,7 @@ class TabelaBebidas(db: SQLiteDatabase) : TabelaBD(db, NOME_TABELA) {
         const val NOME_MARCA = "marca"
         const val NOME_TEOR_ALCOOLICO = "TEOR_ALCOOLICO"
         const val NOME_FK_TIPOS = "id_tipos"
-        const val CAMPO_NOME_TIPO = TabelaTipos.CAMPO_TIPO;
+        const val CAMPO_NOME_TIPO = TabelaTipos.CAMPO_TIPO
         const val CAMPO_SABOR_TIPO = TabelaTipos.CAMPO_SABOR
         const val CAMPO_QUANTIDADE_TIPO = TabelaTipos.CAMPO_QUANTIDADE
 

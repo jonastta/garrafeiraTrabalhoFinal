@@ -13,4 +13,16 @@
         android:ems="10"
         android:inputType="text"
         android:text="Name" />
+
+    <TextView
+        android:id="@+id/textViewTipoNova"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Tipo" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

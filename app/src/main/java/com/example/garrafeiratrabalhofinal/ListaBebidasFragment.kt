@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeiratrabalhofinal.databinding.FragmentListaTiposBinding
@@ -72,7 +73,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            BebidasCsontentProvider.ENDERECO_BEBIDAS,
+            BebidasContentProvider.ENDERECO_BEBIDAS,
             TabelaBebidas.CAMPOS,
             null, null,
             TabelaBebidas.NOME_MARCA)
@@ -115,7 +116,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun adicionaBebidas() {
-        TODO("Not yet implemented")
+        findNavController().navigate(R.id.action_ListaTiposFragment_to_novaBebidaFragment)
     }
 
 

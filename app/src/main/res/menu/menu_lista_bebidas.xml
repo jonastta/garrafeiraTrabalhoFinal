@@ -17,5 +17,6 @@
         android:id="@+id/action_Eliminar"
         android:icon="@android:drawable/ic_delete"
         android:title="@string/eliminar"
+        android:visible="false"
         app:showAsAction="ifRoom" />
 </menu>

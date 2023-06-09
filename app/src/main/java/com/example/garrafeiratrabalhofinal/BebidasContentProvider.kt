@@ -9,7 +9,7 @@ import android.provider.BaseColumns
 import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeira.TabelaTipos
 
-class BebidasCsontentProvider : ContentProvider(){
+class BebidasContentProvider : ContentProvider(){
 
     private var bdOpenHelper : BdGarrafeira?= null
     override fun onCreate(): Boolean {
