@@ -63,6 +63,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         val opcaoProcessada = when (fragment) {
             is ListaBebidasFragment -> (fragment as ListaBebidasFragment).processaOpcaoMenu(item)
+            is NovaBebidaFragment ->(fragment as NovaBebidaFragment).processaOpcaoMenu(item)
             else -> when (item.itemId){
                 R.id.action_settings -> true
                 else -> false

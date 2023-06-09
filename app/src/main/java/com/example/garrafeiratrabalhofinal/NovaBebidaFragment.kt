@@ -3,6 +3,7 @@ package com.example.garrafeiratrabalhofinal
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
@@ -37,5 +38,27 @@ class NovaBebidaFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_Guardar -> {
+                guardar()
+                true
+            }
+            R.id.action_Cancelar-> {
+                cancelar()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun cancelar() {
+        findNavController().navigate(R.id.action_novaBebidaFragment_to_ListaTiposFragment)
+    }
+
+    private fun guardar() {
+        TODO("Not yet implemented")
     }
 }
