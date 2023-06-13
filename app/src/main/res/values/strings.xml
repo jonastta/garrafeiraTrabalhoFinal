@@ -60,4 +60,8 @@
     <string name="nova_bebeida_label">Nova Bebdida</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="marca_obrigatoria">Deve preencher a marca</string>
+    <string name="teorAlcoolico_obrigatorio">Obrigatorio o teor alcoolico</string>
+    <string name="erroGuardarBebida">Não foi possivel guardar a bebida</string>
+    <string name="BebidaGuardadaComSucesso">Bebida guardada com sucesso</string>
 </resources>

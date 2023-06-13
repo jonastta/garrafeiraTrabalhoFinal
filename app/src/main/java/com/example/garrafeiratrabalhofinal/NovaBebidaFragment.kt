@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -45,7 +46,7 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         val activity = activity as MainActivity
         activity.fragment = this
-        activity.idMenuAtual = R.menu.menu_lista_bebidas
+        activity.idMenuAtual = R.menu.menu_guardar_cancelar
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -71,12 +72,37 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun guardar() {
-        val nome = binding.editTextText.text.toString()
-        if(nome.isBlank()){
-            binding.editTextText.error = getString(R.string.)
-            binding.editTextText.requestFocus()
+        val marca = binding.editTextMarca.text.toString()
+        if(marca.isBlank()){
+            binding.editTextMarca.error =getString(R.string.marca_obrigatoria)
+            binding.editTextMarca.requestFocus()
             return
         }
+
+        val tiposId = binding.spinner.selectedItemId
+
+        val teorAlcoolico = binding.editTextTeorAlcoolico.text.toString()
+        if(teorAlcoolico.isBlank()){
+            binding.editTextTeorAlcoolico.error =getString(R.string.teorAlcoolico_obrigatorio)
+            binding.editTextTeorAlcoolico.requestFocus()
+            return
+        }
+
+        val bebidas = Bebidas (
+            marca,
+            teorAlcoolico,
+            Tipos("?","?","?",tiposId)
+                )
+        val id = requireActivity().contentResolver.insert(
+            BebidasContentProvider.ENDERECO_BEBIDAS,
+            bebidas.toContentValues()
+        )
+        if (id == null){
+            binding.editTextMarca.error = getString(R.string.erroGuardarBebida)
+            return
+        }
+        Toast.makeText(requireContext(),getString(R.string.BebidaGuardadaComSucesso),Toast.LENGTH_SHORT).show()
+        cancelar()
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {

@@ -43,12 +43,9 @@ class AdapterBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<
         fun desSeleciona (){
             itemView.setBackgroundResource(R.color.white)
         }
-
-        private var viewHolderSelecionado : ViewHolderBebidas ?= null
-
-
     }
 
+    private var viewHolderSelecionado : ViewHolderBebidas ?= null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderBebidas {
         return ViewHolderBebidas(
         fragment.layoutInflater.inflate(R.layout.item_bebidas,parent,false)
@@ -60,8 +57,7 @@ class AdapterBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ViewHolderBebidas, position: Int) {
-        cursor!!.moveToPosition(position + 1)
+        cursor!!.moveToPosition(position)
         holder.bebidas=Bebidas.fromCursor(cursor!!)
-        //holder
     }
 }

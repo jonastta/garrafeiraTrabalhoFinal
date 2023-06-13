@@ -49,6 +49,8 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         return binding.root
     }
 
+    private var adapterBebidas:  AdapterBebidas ?= null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -80,7 +82,7 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     }
 
-    private var adapterBebidas:  AdapterBebidas ?= null
+
     override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterBebidas!!.cursor = null
     }

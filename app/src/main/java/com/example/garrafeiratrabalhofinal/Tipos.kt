@@ -8,7 +8,7 @@ import com.example.garrafeira.TabelaTipos
 data class Tipos(
     var tipos: String?,
     var sabor: String?,
-    var quantidade: Double,
+    var quantidade: String,
     var id: Long=-1) {
     fun  toContentValues() : ContentValues {
         val valores = ContentValues()
@@ -25,7 +25,7 @@ data class Tipos(
             val posQuantidade = cursor.getColumnIndex(TabelaTipos.CAMPO_QUANTIDADE)
 
             val tipos = cursor.getString(posTipos)
-            val quantidade = cursor.getDouble(posQuantidade)
+            val quantidade = cursor.getString(posQuantidade)
             val sabor = cursor.getString(posSabor)
             val id = cursor.getLong(posId)
 

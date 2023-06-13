@@ -5,7 +5,7 @@ import android.provider.BaseColumns
 
 class TabelaTipos(db: SQLiteDatabase) : TabelaBD(db, NOME_TABELA) {
     override fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, $CAMPO_TIPO TEXT NOT NULL, $CAMPO_SABOR TEXT NOT NULL,$CAMPO_QUANTIDADE DOUBLE NOT NULL )")
+        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, $CAMPO_TIPO TEXT NOT NULL, $CAMPO_SABOR TEXT NOT NULL,$CAMPO_QUANTIDADE TEXT NOT NULL )")
     }
 
     companion object {

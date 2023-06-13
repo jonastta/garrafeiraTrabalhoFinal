@@ -39,7 +39,7 @@ data class Bebidas(
             val Nome_Tipo = cursor.getString(posNomeTipos)
             val tipos = cursor.getLong(posId_tipos)
             val Sabor_tipos = cursor.getString(posSaborTipos)
-            val Quantidade_tipos = cursor.getDouble(posQuantidadeTipos)
+            val Quantidade_tipos = cursor.getString(posQuantidadeTipos)
 
             return Bebidas(marca, teor_alcoolico, Tipos (Nome_Tipo,Sabor_tipos,Quantidade_tipos, tipos) , id)
         }
