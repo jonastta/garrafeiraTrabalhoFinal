@@ -4,13 +4,14 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 import com.example.garrafeira.TabelaBebidas
+import java.io.Serializable
 
 data class Bebidas(
     var marca : String?,
     var TEOR_ALCOOLICO: String?,
     var tipos : Tipos,
     var id : Long = -1
-) {
+):Serializable  {
     fun toContentValues() : ContentValues{
         val valores = ContentValues()
 
