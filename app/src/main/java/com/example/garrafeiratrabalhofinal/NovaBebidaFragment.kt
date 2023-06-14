@@ -1,6 +1,7 @@
 package com.example.garrafeiratrabalhofinal
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -100,12 +101,39 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             binding.editTextTeorAlcoolico.requestFocus()
             return
         }
-
+        if (bebida == null){
         val bebidas = Bebidas (
             marca,
             teorAlcoolico,
             Tipos("?","?","?",tiposId)
                 )
+            insereBebida(bebidas)
+        } else {
+            val bebida = bebida!!
+            bebida.marca = marca
+            bebida.tipos =  Tipos("?","?","?",tiposId)
+            bebida.TEOR_ALCOOLICO = teorAlcoolico
+
+
+            alteraBebida(bebida)
+        }
+    }
+
+    private fun alteraBebida(bebidas: Bebidas) {
+        val enderecoBebida = Uri.withAppendedPath(BebidasContentProvider.ENDERECO_BEBIDAS, bebidas.id.toString())
+        val bebidasAlteradas = requireActivity().contentResolver.update(enderecoBebida, bebidas.toContentValues(), null, null)
+
+        if (bebidasAlteradas== 1) {
+            Toast.makeText(requireContext(), R.string.bebida_guardada_com_sucesso, Toast.LENGTH_LONG).show()
+            cancelar()
+        } else {
+            binding.editTextMarca.error = getString(R.string.erroGuardarBebida)
+        }
+    }
+
+    private fun insereBebida(
+        bebidas: Bebidas
+    ) {
         val id = requireActivity().contentResolver.insert(
             BebidasContentProvider.ENDERECO_BEBIDAS,
             bebidas.toContentValues()
