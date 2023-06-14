@@ -115,12 +115,13 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun editarBebidas() {
-        TODO("Not yet implemented")
+        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToNovaBebidaFragment(bebedidaSelecionada!!)
+        findNavController().navigate(acao)
     }
 
     private fun adicionaBebidas() {
-        findNavController().navigate(R.id.action_ListaTiposFragment_to_novaBebidaFragment)
-    }
-
+        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToNovaBebidaFragment(null)
+        findNavController().navigate(acao)
+}
 
 }

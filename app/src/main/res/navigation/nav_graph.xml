@@ -51,6 +51,10 @@
         <action
             android:id="@+id/action_novaBebidaFragment_to_ListaTiposFragment"
             app:destination="@id/ListaTiposFragment" />
+        <argument
+            android:name="bebida"
+            app:argType="com.example.garrafeiratrabalhofinal.Bebidas"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/eliminar_Bebida"

@@ -22,6 +22,9 @@ import com.example.garrafeiratrabalhofinal.databinding.FragmentSobreBinding
 private const val ID_LOADER_TIPOS = 0
 
 class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+
+    private  var bebida: Bebidas ?= null
+
     private var _binding: FragmentNovaBebidaBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -47,6 +50,16 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
+
+        val bebida = NovaBebidaFragmentArgs.fromBundle(requireArguments()).bebida
+
+        if (bebida != null) {
+            binding.editTextMarca.setText(bebida.marca)
+            binding.editTextTeorAlcoolico.setText(bebida.TEOR_ALCOOLICO)
+        }
+
+        this.bebida = bebida
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -131,5 +144,20 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             intArrayOf(android.R.id.text1),
             0
         )
+        mostraTipoSelecionadoSpinner()
+    }
+
+    private fun mostraTipoSelecionadoSpinner() {
+        if (bebida == null) return
+
+        val idCategoria = bebida!!.tipos.id
+
+        val ultimaCategoria = binding.spinner.count - 1
+        for (i in 0..ultimaCategoria) {
+            if (idCategoria == binding.spinner.getItemIdAtPosition(i)) {
+                binding.spinner.setSelection(i)
+                return
+            }
+        }
     }
 }
