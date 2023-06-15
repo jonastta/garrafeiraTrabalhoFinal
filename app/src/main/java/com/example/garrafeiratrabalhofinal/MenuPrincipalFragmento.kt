@@ -41,7 +41,7 @@ private var _binding: FragmentoMenuPrincialBinding? = null
 
         val activity = activity as MainActivity
         activity.fragment = this
-        activity.idMenuAtual = R.menu.menu_lista_bebidas
+        activity.idMenuAtual = R.menu.menu_main
     }
 
 override fun onDestroyView() {

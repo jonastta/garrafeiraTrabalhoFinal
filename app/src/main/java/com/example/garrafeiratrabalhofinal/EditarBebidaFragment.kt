@@ -14,19 +14,17 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeira.TabelaTipos
-import com.example.garrafeiratrabalhofinal.databinding.FragmentNovaBebidaBinding
-import com.example.garrafeiratrabalhofinal.databinding.FragmentSobreBinding
+import com.example.garrafeiratrabalhofinal.databinding.FragmentEditarBebidaBinding
 
 
 private const val ID_LOADER_TIPOS = 0
 
-class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class EditarBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private  var bebida: Bebidas ?= null
 
-    private var _binding: FragmentNovaBebidaBinding? = null
+    private var _binding: FragmentEditarBebidaBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -34,9 +32,9 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentNovaBebidaBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarBebidaBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -52,7 +50,7 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
 
-        val bebida = NovaBebidaFragmentArgs.fromBundle(requireArguments()).bebida
+        val bebida = EditarBebidaFragmentArgs.fromBundle(requireArguments()).bebida
 
         if (bebida != null) {
             binding.editTextMarca.setText(bebida.marca)
@@ -82,7 +80,7 @@ class NovaBebidaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun cancelar() {
-        findNavController().navigate(R.id.action_novaBebidaFragment_to_ListaTiposFragment)
+        findNavController().navigate(R.id.action_EditarBebidaFragment_to_ListaTiposFragment)
     }
 
     private fun guardar() {

@@ -1,7 +1,6 @@
 package com.example.garrafeiratrabalhofinal
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
@@ -63,7 +62,7 @@ override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         val opcaoProcessada = when (fragment) {
             is ListaBebidasFragment -> (fragment as ListaBebidasFragment).processaOpcaoMenu(item)
-            is NovaBebidaFragment -> (fragment as NovaBebidaFragment).processaOpcaoMenu(item)
+            is EditarBebidaFragment -> (fragment as EditarBebidaFragment).processaOpcaoMenu(item)
             is Eliminar_Bebida -> (fragment as Eliminar_Bebida).processaOpcaoMenu(item)
             else -> when (item.itemId){
                 R.id.action_settings -> true

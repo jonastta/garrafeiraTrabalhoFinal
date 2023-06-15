@@ -58,14 +58,14 @@ class Eliminar_Bebida : Fragment() {
                 true
             }
             R.id.action_cancelar -> {
-                voltaListaLivros()
+                voltaListaBebidas()
                 true
             }
             else -> false
         }
     }
 
-    private fun voltaListaLivros() {
+    private fun voltaListaBebidas() {
         findNavController().navigate(R.id.action_eliminar_Bebida_to_ListaTiposFragment)
     }
 
@@ -75,7 +75,7 @@ class Eliminar_Bebida : Fragment() {
 
         if (numBebidasEliminados == 1) {
             Toast.makeText(requireContext(), getString(R.string.bebidas_eliminado_com_sucesso), Toast.LENGTH_LONG).show()
-            voltaListaLivros()
+            voltaListaBebidas()
         } else {
             Snackbar.make(binding.textViewMarca2, getString(R.string.erro_eliminar_bebida), Snackbar.LENGTH_INDEFINITE)
         }

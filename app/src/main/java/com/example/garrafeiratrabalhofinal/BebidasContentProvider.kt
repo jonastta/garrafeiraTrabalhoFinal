@@ -140,9 +140,9 @@ class BebidasContentProvider : ContentProvider(){
         public val ENDERECO_BEBIDAS= Uri.withAppendedPath(ENDERECO_BASE, BEBIDAS)
         fun UriMatcher() = UriMatcher(UriMatcher.NO_MATCH).apply {
             addURI(AUTORIDADE, TIPOS, URI_TIPOS)
-            addURI(AUTORIDADE,"$TIPOS", URI_TIPOS)
+            addURI(AUTORIDADE,"$TIPOS/#", URI_TIPOS_ID)
             addURI(AUTORIDADE, BEBIDAS, URI_BEBIDAS)
-            addURI(AUTORIDADE,"$BEBIDAS", URI_BEBIDAS)
+            addURI(AUTORIDADE,"$BEBIDAS/#", URI_BEBIDAS_ID)
         }
     }
 }

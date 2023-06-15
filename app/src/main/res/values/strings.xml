@@ -73,4 +73,7 @@
     <string name="bebidas_eliminado_com_sucesso">Bebida eleminada com sucesso\n</string>
     <string name="erro_eliminar_bebida">Erro a eliminar bebida</string>
     <string name="bebida_guardada_com_sucesso">Bebida guardada com sucesso</string>
+    <string name="marca1">Marca</string>
+    <string name="teor_alcoolico1">Teor Alcoolico</string>
+    <string name="tipo1">Tipo</string>
 </resources>

@@ -38,7 +38,7 @@ class BdExampleInstrumentedTest {
     fun ConsegueInserirTipos(){
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("sumos", "laranja","1.00")
+        val tipo = Tipos("sumo", "laranja","1.00")
         insereTipos(bd, tipo)
     }
 
@@ -66,10 +66,10 @@ class BdExampleInstrumentedTest {
     fun consegueLerTipos() {
         val bd = getWritableDatabase()
 
-        val tipo1 = Tipos("Vinhos", "Tinto","0.75")
+        val tipo1 = Tipos("Vinho", "Tinto","0.75")
         insereTipos(bd, tipo1)
 
-        val tipo2 = Tipos("Sumos", "Laranja","1.00")
+        val tipo2 = Tipos("Sumo", "Laranja","1.00")
         insereTipos(bd, tipo2)
 
         val tabelaTipos = TabelaTipos(bd)
@@ -102,10 +102,10 @@ class BdExampleInstrumentedTest {
     fun consegueLerBebidas() {
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Licor", "Tinto","0.75")
+        val tipo = Tipos("Licor", "Figo","0.75")
         insereTipos(bd, tipo)
 
-        val Bebida = Bebidas("Cerveja","Não", tipo)
+        val Bebida = Bebidas("Sagres","Sim", tipo)
         insereBebida(bd, Bebida)
 
         val Bebida1 = Bebidas("Sumol","Não",tipo)
@@ -157,10 +157,10 @@ class BdExampleInstrumentedTest {
 
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Vinhos", "Tinto","0.75")
+        val tipo = Tipos("Vinho", "Tinto","0.75")
         insereTipos(bd, tipo)
 
-        tipo.tipos = "Sumos"
+        tipo.tipos = "Sumo"
         val registoAlterado = TabelaTipos(bd).altera(tipo.toContentValues(),
             "${BaseColumns._ID}=?",
             arrayOf(tipo.id.toString()),
@@ -175,10 +175,10 @@ class BdExampleInstrumentedTest {
 
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Vinhos", "Tinto","0.75")
+        val tipo = Tipos("Vinho", "Tinto","0.75")
         insereTipos(bd, tipo)
 
-        val tipo2 = Tipos("Sumos", "Laranja","1.00")
+        val tipo2 = Tipos("Sumo", "Laranja","1.00")
         insereTipos(bd, tipo2)
 
         val Bebida1 = Bebidas("...","...",tipo)
@@ -204,7 +204,7 @@ class BdExampleInstrumentedTest {
 
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Vinhos", "Tinto","0.75")
+        val tipo = Tipos("Vinho", "Tinto","0.75")
         insereTipos(bd, tipo)
 
 
@@ -222,7 +222,7 @@ class BdExampleInstrumentedTest {
 
         val bd = getWritableDatabase()
 
-        val tipo = Tipos("Vinhos", "Tinto","0.75")
+        val tipo = Tipos("Vinho", "Tinto","0.75")
         insereTipos(bd, tipo)
 
 

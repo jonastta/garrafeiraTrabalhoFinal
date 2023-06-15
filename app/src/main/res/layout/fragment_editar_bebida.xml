@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NovaBebidaFragment" >
+    tools:context=".EditarBebidaFragment" >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -16,7 +16,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Marca" />
+            android:text="@string/marca1"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+            android:autofillHints="" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -29,14 +31,16 @@
                 android:layout_weight="0"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Teor Alcoolico" />
+                android:text="@string/teor_alcoolico1"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/textViewTipoNova"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Tipo" />
+                android:text="@string/tipo1" />
 
             <Spinner
                 android:id="@+id/spinner"

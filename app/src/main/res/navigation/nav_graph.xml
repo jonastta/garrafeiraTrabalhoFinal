@@ -37,19 +37,19 @@
             android:id="@+id/action_ListaTiposFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
         <action
-            android:id="@+id/action_ListaTiposFragment_to_novaBebidaFragment"
-            app:destination="@id/novaBebidaFragment" />
+            android:id="@+id/action_ListaTiposFragment_to_EditarBebidaFragment"
+            app:destination="@id/EditarBebidaFragment" />
         <action
             android:id="@+id/action_ListaTiposFragment_to_eliminar_Bebida"
             app:destination="@id/eliminar_Bebida" />
     </fragment>
     <fragment
-        android:id="@+id/novaBebidaFragment"
-        android:name="com.example.garrafeiratrabalhofinal.NovaBebidaFragment"
+        android:id="@+id/EditarBebidaFragment"
+        android:name="com.example.garrafeiratrabalhofinal.EditarBebidaFragment"
         android:label="@string/nova_bebeida_label"
-        tools:layout="@layout/fragment_nova_bebida">
+        tools:layout="@layout/fragment_editar_bebida">
         <action
-            android:id="@+id/action_novaBebidaFragment_to_ListaTiposFragment"
+            android:id="@+id/action_EditarBebidaFragment_to_ListaTiposFragment"
             app:destination="@id/ListaTiposFragment" />
         <argument
             android:name="bebida"

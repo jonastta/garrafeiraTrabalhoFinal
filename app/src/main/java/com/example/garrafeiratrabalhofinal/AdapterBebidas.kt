@@ -18,6 +18,7 @@ class AdapterBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<
 
         private val  textViewTipo = contentor.findViewById<TextView>(R.id.textViewTipo)
         private val textViewBebida = contentor.findViewById<TextView>(R.id.textViewBebida)
+        private val textViewTeorAlcoolico = contentor.findViewById<TextView>(R.id.textViewTeorAlcolico)
 
 
             init {
@@ -30,7 +31,9 @@ class AdapterBebidas(val fragment: ListaBebidasFragment) : RecyclerView.Adapter<
             set(value){
                 field = value
                 textViewBebida.text = bebidas?.marca?:""
+                textViewTeorAlcoolico.text = bebidas?.TEOR_ALCOOLICO?:""
                 textViewTipo.text = bebidas?.tipos?.tipos?:""
+
 
             }
 

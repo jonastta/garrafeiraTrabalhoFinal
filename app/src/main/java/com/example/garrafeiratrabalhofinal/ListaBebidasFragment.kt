@@ -16,6 +16,7 @@ import com.example.garrafeira.TabelaBebidas
 import com.example.garrafeiratrabalhofinal.databinding.FragmentListaTiposBinding
 
 
+
 private const val ID_LOADER_BEBIDAS = 0
 
 
@@ -115,12 +116,12 @@ class ListaBebidasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun editarBebidas() {
-        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToNovaBebidaFragment(bebedidaSelecionada!!)
+        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToEditarBebidaFragment(bebedidaSelecionada!!)
         findNavController().navigate(acao)
     }
 
     private fun adicionaBebidas() {
-        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToNovaBebidaFragment(null)
+        val acao = ListaBebidasFragmentDirections.actionListaTiposFragmentToEditarBebidaFragment(null)
         findNavController().navigate(acao)
 }
 
